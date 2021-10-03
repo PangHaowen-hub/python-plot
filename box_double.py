@@ -1,13 +1,11 @@
-import numpy
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
-file_path = r'G:\Lobectomy\dalian\LLL\LL.xls'
+file_path = r'G:\Lobectomy\dalian\RUL\RU.xls'
 
-LL_before = pd.read_excel(io=file_path, sheet_name='LL_before', header=None)
-LL_after = pd.read_excel(io=file_path, sheet_name='LL_after', header=None)
+LL_before = pd.read_excel(io=file_path, sheet_name=0, header=None)
+LL_after = pd.read_excel(io=file_path, sheet_name=1, header=None)
 
 LL_before_value = LL_before.values[:, 1:]
 LL_after_value = LL_after.values[:, 1:]
@@ -27,7 +25,7 @@ plt.xlim(-0.5, 20)
 
 rect1 = patches.Rectangle((0, 0), 1, 1, facecolor='pink')
 rect2 = patches.Rectangle((0, 0), 1, 1, facecolor='yellow')
+plt.ylim(0, 2500000)
 plt.legend((rect1, rect2), ('before', 'after'), ncol=1)
-plt.title('LLL')
-plt.savefig('LLL.png')  # 保存图片
+plt.savefig('RUL_dalian.png')  # 保存图片
 plt.show()
